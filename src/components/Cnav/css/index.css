@@ -1,0 +1,23 @@
+.cnav {
+  font-size: 1.8rem;
+  line-height: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e7e7e7;
+  background-color: #f8f8f8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1; }
+  .cnav span {
+    font-weight: bold; }
+  .cnav a {
+    color: #5e5e5e; }
+  .cnav img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 6px; }

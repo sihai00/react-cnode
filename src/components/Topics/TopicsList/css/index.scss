@@ -1,0 +1,24 @@
+.artlist{
+  margin-bottom: 6rem;
+  background-color: #fff;
+  ul {
+    padding: 0;
+  }
+  li{
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    .artlist-title{
+      color: #2c3e50;
+      font-size: 1.8rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-bottom: 0.4rem;
+      strong{
+        line-height: 2.6rem;
+        margin-left: 0.5rem;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
