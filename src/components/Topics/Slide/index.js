@@ -14,12 +14,6 @@ class Slide extends Component {
       ]
     }
   }
-  componentWillUpdate(){
-  }
-  componentWillReceiveProps(nextProps){
-  }
-  componentDidMount(){
-  }
   render() {
     let { changeTab } = this.props
     return (

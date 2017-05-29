@@ -1,7 +1,7 @@
-import { call, select, put, takeEvery } from 'redux-saga/effects'
+import { call, select, put, takeEvery, fork } from 'redux-saga/effects'
 import axios from 'axios'
 import { objToParam } from '../tool'
-import { getTopics } from '../actions'
+import { getTopics, getTopic } from '../actions'
 
 const url = 'https://cnodejs.org/api/v1'
 // 封装GET方法
@@ -29,6 +29,18 @@ export function* getTopicsAsync() {
   // yield put({type: 'GETTOPICS', data: 1})
 }
 
+// 获取topic数据
+export function* getTopicAsync(action) {
+  // 异步获取数据
+  let data = yield call(getApiData, url + '/topic/' + action.id)
+  
+  // 添加到store
+  yield put(getTopic(data))
+  // yield put({type: 'GETTOPICS', data: 1})
+}
+
+
 export default function* rootSaga() {
   yield takeEvery('GETTOPICS_ASYNC', getTopicsAsync)
+  yield takeEvery('GETTOPIC_ASYNC', getTopicAsync)
 }

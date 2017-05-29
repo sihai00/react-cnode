@@ -1,5 +1,10 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import Content from '../components/Topic/Content'
+import CommentCount from '../components/Topic/CommentCount'
+import CommentList from '../components/Topic/CommentList'
+import Comment from '../components/Topic/Comment'
+import { getTopic_async } from '../actions'
 
 class Topic extends Component {
   constructor(props, context) {
@@ -7,22 +12,36 @@ class Topic extends Component {
     this.state = {
     }
   }
-
+  componentDidMount(){
+    // 获取数据
+    this.props.getTopic(this.props.match.params.id)
+  }
   render() {
+    console.log(this.props.match.params.id)
     return (
-      <p style={{paddingTop: '100px'}}>{this.props.match.params.id}</p>
+      <div className="app-wrap">
+        <Content />
+        <CommentCount />
+        <CommentList />
+        <section style={{padding: '0 1rem'}}>
+          <Comment></Comment>
+        </section>
+      </div>
     )
   }
 }
 
 function mapStateToProps(state) {
   return {
+    data: state.topic
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    
+    getTopic: (id) => {
+      dispatch(getTopic_async(id))
+    }
   }
 }
 export default connect(

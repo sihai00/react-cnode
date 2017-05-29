@@ -7,9 +7,6 @@ let initState = {
 const topics = (state = initState, action) => {
   let { payload } = action
   switch (action.type) {
-    // 获取topics请求参数
-    case 'GETPRAMA':
-      return initState
     // 切换导航
     case 'CHANGETAB':
       return {
@@ -22,6 +19,9 @@ const topics = (state = initState, action) => {
         ...state,
         data: payload
       }
+    // 获取topics请求参数
+    case 'GETPRAMA':
+      return state
     default:
       return state
   }

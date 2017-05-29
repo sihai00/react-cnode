@@ -18,3 +18,23 @@ export function getTopics(data) {
     payload: data
   }
 }
+// 异步获取文章列表
+export function getTopics_async() {
+  return {
+    type: 'GETTOPICS_ASYNC',
+  }
+}
+// 获取文章
+export function getTopic(data) {
+  return {
+    type: 'GETTOPIC',
+    payload: data
+  }
+}
+// 异步获取文章
+export function getTopic_async(id) {
+  return {
+    type: 'GETTOPIC_ASYNC',
+    id
+  }
+}

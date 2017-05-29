@@ -1,0 +1,16 @@
+.article {
+  padding: 1rem;
+  background-color: #fff; }
+  .article h1 {
+    padding: .6rem;
+    background-color: #f0f0f0;
+    border-radius: 4px; }
+  .article .article-centent {
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    overflow: scroll;
+    background-color: #eee;
+    padding: 1rem;
+    border-radius: 4px; }
+    .article .article-centent img {
+      width: 100%; }
