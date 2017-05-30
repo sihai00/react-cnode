@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
-import logo from '../../../img/logo.svg'
+import { getArticleTab } from '../../../tool'
 import './css/index.css'
 
 class Content extends Component {
   render() {
+    let { data } = this.props
     return (
       <section className="article">
-        <h1>标题</h1>
+        <h1>{data.title}</h1>
         <div className="content">
-          <img src={logo} alt="logo"/>
+          <img src={data.author.avatar_url} alt="logo"/>
           <div className="info">
-            <div className="info-item"><span>用户名</span><span className="label label-primary">精品</span></div>
-            <div className="info-item"><time>发布于：2017-06-06</time><time>222次浏览</time></div>
+            <div className="info-item"><span>{data.author.loginname}</span><span className="label label-primary">{getArticleTab(data.tab, data.good, data.top)}</span></div>
+            <div className="info-item"><time>发布于：{data.create_at.split('T')[0]}</time><time>{data.visit_count}次浏览</time></div>
           </div>
         </div>
-        <div className="article-centent">内容</div>
+        <div className="article-centent" dangerouslySetInnerHTML={{__html:data.content}}></div>
       </section>
     )
   }

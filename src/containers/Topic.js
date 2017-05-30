@@ -17,12 +17,14 @@ class Topic extends Component {
     this.props.getTopic(this.props.match.params.id)
   }
   render() {
-    console.log(this.props.match.params.id)
+    let { data, reply_count, replies } = this.props
     return (
       <div className="app-wrap">
-        <Content />
-        <CommentCount />
-        <CommentList />
+        { data && <Content data={data}/>}
+        { reply_count && <CommentCount reply_count={reply_count}/> }
+        { replies &&  replies.map((v, i) => {
+          return v && <CommentList replies={v} key={i}/>
+        })}
         <section style={{padding: '0 1rem'}}>
           <Comment></Comment>
         </section>
@@ -33,7 +35,9 @@ class Topic extends Component {
 
 function mapStateToProps(state) {
   return {
-    data: state.topic
+    data: state.topic,
+    reply_count: state.topic.reply_count,
+    replies: state.topic.replies
   }
 }
 

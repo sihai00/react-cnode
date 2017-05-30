@@ -24,6 +24,13 @@ export function getTopics_async() {
     type: 'GETTOPICS_ASYNC',
   }
 }
+// 获取下一页文章列表
+export function getMoreTopics(page) {
+  return {
+    type: 'GETMORETOPICS',
+    payload: page
+  }
+}
 // 获取文章
 export function getTopic(data) {
   return {

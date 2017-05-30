@@ -1,27 +1,27 @@
 import React, { Component } from 'react'
-import logo from '../../../img/logo.svg'
 import './css/index.css'
 
 class About extends Component {
   render() {
+    let { replies } = this.props
     return (
       <section className="comment">
         <ul>
           <li className="comment-item">
             <div className="content">
-              <img src={logo} alt="logo"/>
+              <img src={replies.author.avatar_url} alt="logo"/>
               <div className="info">
                 <div className="info-item">
-                  <span>用户名</span>
-                  <span className="label label-default">10赞</span>
+                  <span>{replies.author.loginname}</span>
+                  <span className="label label-default">{replies.ups.length}赞</span>
                 </div>
                 <div className="info-item">
-                  <time>发布于：2016-05-05</time>
+                  <time>发布于：{replies.create_at.split('T')[0]}</time>
                   <span className="label label-warning">回复</span>
                 </div>
               </div>
             </div>
-            <div className="coment-content">内容</div>
+            <div className="coment-content" dangerouslySetInnerHTML={{__html:replies.content}}></div>
           </li>
         </ul>
       </section>
