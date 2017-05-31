@@ -7,40 +7,33 @@ class GetMore extends Component {
       clearTime: '',
       screenHeight: window.screen.height,
     }
+    this.scrollFn = this.scrollFn.bind(this)
   }
-  // callback(){
-  //   let top = this.refs.wrapper.getBoundingClientRect().top
-  //   if(top < this.state.screenHeight){
-  //     this.props.triggerFun()
-  //   }
-  // }
   scrollFn(e){
-    e.stopImmediatePropagation()
-    e.stopPropagation()
-    // let clearTime = this.state.clearTime
-    // // 限制除调用GetMore组件以外的其他场景
-    // if (!this.props.loaded) {
-    //   return 
-    // }
-    // // 节流
-    // if(clearTime){
-    //   clearTimeout(clearTime)
-    // }
+    let clearTime = ''
+    // 限制除调用GetMore组件以外的其他场景
+    if (!this.props.loaded) {
+      return 
+    }
+    // 节流
+    if(clearTime){
+      clearTimeout(clearTime)
+    }
 
-    // clearTime = setTimeout(this.callback.bind(this), 50)
-
-    // this.setState({
-    //   clearTime: clearTime
-    // })
-    console.log('test')
+    clearTime = setTimeout(() => {
+      let top = this.refs.wrapper.getBoundingClientRect().top
+      if(top < this.state.screenHeight){
+        this.props.triggerFun()
+      }
+    }, 50)
   }
   componentDidMount(){
     // 全局监听scroll
-    document.addEventListener('scroll', this.scrollFn.bind(this), false)
+    document.addEventListener('scroll', this.scrollFn, false)
+
   }
   componentWillUnmount(){
-    console.log(1)
-    document.removeEventListener('scroll', this.scrollFn.bind(this), false)
+    document.removeEventListener('scroll', this.scrollFn, false)
   }
   render() {
     return (
