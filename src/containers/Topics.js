@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { changeTab, getTopics_async, getMoreTopics } from '../actions'
+import { changeTab, getTopics_async, getMoreTopics, removeTopics } from '../actions'
 
 import Slide from '../components/Topics/Slide'
 import TopicsList from '../components/Topics/TopicsList'
@@ -61,6 +61,7 @@ function mapDispatchToProps(dispatch) {
   return {
     changeTab: (tab) => {
       dispatch(changeTab(tab))
+      dispatch(removeTopics())
       dispatch(getTopics_async())
     },
     getTopics: () => {

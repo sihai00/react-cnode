@@ -18,6 +18,11 @@ export function getTopics(data) {
     payload: data
   }
 }
+export function removeTopics() {
+  return {
+    type: 'REMOVETOPICS'
+  }
+}
 // 异步获取文章列表
 export function getTopics_async() {
   return {

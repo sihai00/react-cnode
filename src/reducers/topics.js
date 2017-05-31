@@ -20,6 +20,12 @@ const topics = (state = initState, action) => {
         ...state,
         data: payload
       }
+    // 删除topics数据
+    case 'REMOVETOPICS':
+      return {
+        ...state,
+        data: []
+      }
     // 获取下一页
     case 'GETMORETOPICS':
       state.param.page = payload
