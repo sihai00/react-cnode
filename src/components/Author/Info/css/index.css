@@ -1,0 +1,18 @@
+.userInfo {
+  padding: 1rem 3rem; }
+  .userInfo .user-logo {
+    width: 8rem;
+    height: 8rem;
+    margin: 0 auto; }
+    .userInfo .user-logo img {
+      width: 100%; }
+  .userInfo .user-name {
+    text-align: center;
+    font-size: 2rem;
+    color: #555; }
+  .userInfo .user-dec {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #80bd01; }

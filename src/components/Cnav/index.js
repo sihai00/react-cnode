@@ -5,17 +5,14 @@ import user from './img/timg.jpeg'
 import './css/index.css'
 
 class Cnav extends Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-    }
-  }
   render() {
     return (
       <nav className="cnav">
         <span><img src={logo} alt="logo" /><Link to="/">Cnode</Link></span>
         <span>
-          <Link to="/about"><img src={user} alt="user"/></Link>
+          <Link to={this.props.avatar_url ? '/author' : '/login'}>
+            <img src={this.props.avatar_url ? this.props.avatar_url : user} alt="user"/>
+          </Link>
         </span>
       </nav>
     )

@@ -1,0 +1,22 @@
+.recent {
+  background-color: #fff; }
+  .recent .recent-select {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold; }
+    .recent .recent-select span {
+      flex: 1;
+      padding: 1rem;
+      text-align: center;
+      display: inline-block; }
+    .recent .recent-select span:first-child {
+      border-right: 1px solid #ddd; }
+    .recent .recent-select .active {
+      color: #ff5a5f;
+      border-bottom: 2px solid #ff5a5f; }
+
+.recent-content {
+  overflow: scroll; }
+  .recent-content li {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd; }

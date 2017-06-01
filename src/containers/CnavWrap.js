@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import Cnav from '../components/Cnav/index'
+import Cnav from '../components/Cnav'
 
 class CnavWrap extends Component {
   constructor(props, context) {
@@ -11,13 +11,14 @@ class CnavWrap extends Component {
 
   render() {
     return (
-      <Cnav />
+      <Cnav avatar_url={this.props.avatar_url}/>
     )
   }
 }
 
 function mapStateToProps(state) {
   return {
+    avatar_url: state.author.avatar_url
   }
 }
 

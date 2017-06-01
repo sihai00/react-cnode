@@ -1,0 +1,28 @@
+.recent{
+  background-color: #fff;
+  .recent-select{
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    span{
+      flex: 1;
+      padding: 1rem;
+      text-align: center;
+      display: inline-block;
+    }
+    span:first-child{
+      border-right: 1px solid #ddd;
+    }
+    .active{
+      color: #ff5a5f;
+      border-bottom: 2px solid #ff5a5f;
+    }
+  }
+}
+.recent-content{
+  overflow: scroll;
+  li{
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+}

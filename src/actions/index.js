@@ -47,6 +47,40 @@ export function getTopic(data) {
 export function getTopic_async(id) {
   return {
     type: 'GETTOPIC_ASYNC',
-    id
+    payload: id
+  }
+}
+// 登陆
+export function login_async(accesstoken) {
+  return {
+    type: 'LOGIN_ASYNC',
+    payload: accesstoken
+  }
+}
+// 获取登陆信息
+export function getLoginInfo(userInfo) {
+  return {
+    type: 'GETLOGININFO',
+    userInfo
+  }
+}
+// 获取accesstoken
+export function getAccessToken(accesstoken) {
+  return {
+    type: 'GETACCESSTOKEN',
+    payload: accesstoken
+  }
+}
+// 异步获取用户信息
+export function getUserInfo_async() {
+  return {
+    type: 'GETUSERINFO_ASYNC'
+  }
+}
+// 获取用户信息
+export function getUserInfo(data) {
+  return {
+    type: 'GETUSERINFO',
+    payload: data
   }
 }
