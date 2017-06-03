@@ -15,7 +15,7 @@ class CommentList extends Component {
                   <span>{replies.author.loginname}</span>
                   <span 
                     className={`label label-default ${replies.ups.indexOf(id) > -1 ? 'label-success' : ''}`}
-                    onClick={() => setUp(replies)}
+                    onClick={() => setUp(replies, id)}
                   >{replies.ups.length}赞</span>
                 </div>
                 <div className="info-item">

@@ -31,7 +31,7 @@ const store = createStore(
 
 sagaMiddleware.run(mySaga)
 store.subscribe(() => {
-  // console.log('current state', store.getState())
+  console.log('current state', store.getState())
 })
 // Now you can dispatch navigation actions from anywhere!
 // store.dispatch(push('/foo'))

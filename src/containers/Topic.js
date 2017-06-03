@@ -40,7 +40,6 @@ class Topic extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.ups, 'ups')
   return {
     data: state.topic || [],
     reply_count: state.topic.reply_count || 0,
@@ -54,8 +53,8 @@ function mapDispatchToProps(dispatch) {
     getTopic: (id) => {
       dispatch(getTopic_async(id))
     },
-    setUp: (replies) => {
-      dispatch(setUp_async(replies))
+    setUp: (replies ,id) => {
+      dispatch(setUp_async(replies, id))
     }
   }
 }

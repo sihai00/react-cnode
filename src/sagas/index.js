@@ -8,8 +8,7 @@ import {
   getAccessToken, 
   getUserInfo, 
   setUp, 
-  setDown,
-  settingUp
+  setDown
 } from '../actions'
 
 const url = 'https://cnodejs.org/api/v1'
@@ -101,18 +100,14 @@ export function* setUp_async(action) {
   let reply_id = replies.id
   let accesstoken = yield select(state => state.author.accesstoken)
 
-  // 为store添加ups
-  yield put(settingUp(replies.ups))
-
   // 异步获取数据
   let obj = yield call(postApiData, `${url}/reply/${reply_id}/ups`, {accesstoken})
-  
 
   // 添加到store
   if (obj.action === 'down') {
-    yield put(setDown(reply_id))
+    yield put(setDown(replies, action.myId))
   }else{
-    yield put(setUp(reply_id))
+    yield put(setUp(replies, action.myId))
   }
 }
 

@@ -38,8 +38,6 @@ class GetMore extends Component {
     document.removeEventListener('scroll', this.scrollFn, false)
   }
   render() {
-    console.log('render')
-
     return (
       <div ref="wrapper" style={{textAlign: 'center'}}>
         {

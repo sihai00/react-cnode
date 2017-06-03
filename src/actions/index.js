@@ -85,29 +85,26 @@ export function getUserInfo(data) {
   }
 }
 // 点赞,异步
-export function setUp_async(reply_id) {
+export function setUp_async(replies, myId) {
   return {
     type: 'SETUP_ASYNC',
-    payload: reply_id
+    payload: replies,
+    myId: myId
   }
 }
 // 点赞，更新store
-export function setUp(reply_id) {
+export function setUp(replies, myId) {
   return {
     type: 'SETUP',
-    payload: reply_id
+    payload: replies,
+    myId: myId
   }
 }
 // 取消赞
-export function setDown(reply_id) {
+export function setDown(replies, myId) {
   return {
     type: 'SETDOWN',
-    payload: reply_id
-  }
-}
-export function settingUp(ups) {
-  return {
-    type: 'SETTINGUP',
-    payload: ups
+    payload: replies,
+    myId: myId
   }
 }
