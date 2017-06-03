@@ -9,10 +9,10 @@ class Content extends Component {
       <section className="article">
         <h1>{data.title}</h1>
         <div className="content">
-          <img src={data.author.avatar_url} alt="logo"/>
+          <img src={data.author && data.author.avatar_url} alt="logo"/>
           <div className="info">
-            <div className="info-item"><span>{data.author.loginname}</span><span className="label label-primary">{getArticleTab(data.tab, data.good, data.top)}</span></div>
-            <div className="info-item"><time>发布于：{data.create_at.split('T')[0]}</time><time>{data.visit_count}次浏览</time></div>
+            <div className="info-item"><span>{data.author && data.author.loginname}</span><span className="label label-primary">{getArticleTab(data.tab, data.good, data.top)}</span></div>
+            <div className="info-item"><time>发布于：{data.create_at && data.create_at.split('T')[0]}</time><time>{data.visit_count}次浏览</time></div>
           </div>
         </div>
         <div className="article-centent" dangerouslySetInnerHTML={{__html:data.content}}></div>

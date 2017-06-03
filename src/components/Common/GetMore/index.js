@@ -10,32 +10,36 @@ class GetMore extends Component {
     this.scrollFn = this.scrollFn.bind(this)
   }
   scrollFn(e){
-    let clearTime = ''
+    let clearTimeId = ''
     // 限制除调用GetMore组件以外的其他场景
     if (!this.props.loaded) {
       return 
     }
     // 节流
-    if(clearTime){
-      clearTimeout(clearTime)
+    if(this.state.clearTime){
+      clearTimeout(this.state.clearTime)
     }
 
-    clearTime = setTimeout(() => {
+    clearTimeId = setTimeout(() => {
       let top = this.refs.wrapper.getBoundingClientRect().top
       if(top < this.state.screenHeight){
         this.props.triggerFun()
       }
-    }, 50)
+    }, 100)
+
+    this.setState({
+      clearTime: clearTimeId
+    })
   }
   componentDidMount(){
-    // 全局监听scroll
     document.addEventListener('scroll', this.scrollFn, false)
-
   }
   componentWillUnmount(){
     document.removeEventListener('scroll', this.scrollFn, false)
   }
   render() {
+    console.log('render')
+
     return (
       <div ref="wrapper" style={{textAlign: 'center'}}>
         {

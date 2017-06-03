@@ -84,3 +84,30 @@ export function getUserInfo(data) {
     payload: data
   }
 }
+// 点赞,异步
+export function setUp_async(reply_id) {
+  return {
+    type: 'SETUP_ASYNC',
+    payload: reply_id
+  }
+}
+// 点赞，更新store
+export function setUp(reply_id) {
+  return {
+    type: 'SETUP',
+    payload: reply_id
+  }
+}
+// 取消赞
+export function setDown(reply_id) {
+  return {
+    type: 'SETDOWN',
+    payload: reply_id
+  }
+}
+export function settingUp(ups) {
+  return {
+    type: 'SETTINGUP',
+    payload: ups
+  }
+}

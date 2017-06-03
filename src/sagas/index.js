@@ -1,7 +1,16 @@
 import { call, select, put, takeEvery } from 'redux-saga/effects'
 import axios from 'axios'
 import { objToParam } from '../tool'
-import { getTopics, getTopic, getLoginInfo, getAccessToken, getUserInfo } from '../actions'
+import { 
+  getTopics, 
+  getTopic, 
+  getLoginInfo, 
+  getAccessToken, 
+  getUserInfo, 
+  setUp, 
+  setDown,
+  settingUp
+} from '../actions'
 
 const url = 'https://cnodejs.org/api/v1'
 // 封装GET方法
@@ -85,9 +94,32 @@ export function* getUserInfo_async() {
   yield put(getUserInfo(data))
 }
 
+// 点赞
+export function* setUp_async(action) {
+  // 获取请求参数
+  let replies = action.payload
+  let reply_id = replies.id
+  let accesstoken = yield select(state => state.author.accesstoken)
+
+  // 为store添加ups
+  yield put(settingUp(replies.ups))
+
+  // 异步获取数据
+  let obj = yield call(postApiData, `${url}/reply/${reply_id}/ups`, {accesstoken})
+  
+
+  // 添加到store
+  if (obj.action === 'down') {
+    yield put(setDown(reply_id))
+  }else{
+    yield put(setUp(reply_id))
+  }
+}
+
 export default function* rootSaga() {
   yield takeEvery('GETTOPICS_ASYNC', getTopicsAsync)
   yield takeEvery('GETTOPIC_ASYNC', getTopicAsync)
   yield takeEvery('LOGIN_ASYNC', getLoginAsync)
   yield takeEvery('GETUSERINFO_ASYNC', getUserInfo_async)
+  yield takeEvery('SETUP_ASYNC', setUp_async)
 }
