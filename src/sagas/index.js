@@ -8,7 +8,8 @@ import {
   getAccessToken, 
   getUserInfo, 
   setUp, 
-  setDown
+  setDown,
+  addRplies
 } from '../actions'
 
 const url = 'https://cnodejs.org/api/v1'
@@ -111,10 +112,31 @@ export function* setUp_async(action) {
   }
 }
 
+// 评论
+export function* replies_async(action) {
+  // 获取参数
+  let author = yield select(state => state.author)
+  let content = action.content
+  let topic_id = action.topic_id
+  let reply_id = action.reply_id
+
+  // 异步获取数据
+  let data = yield call(postApiData, `${url}/topic/${topic_id}/replies`, {
+    accesstoken: author.accesstoken,
+    content: content,
+    reply_id: reply_id
+  })
+
+  // 添加到store
+  if (data.success) {
+    yield put(addRplies(author, content, reply_id))
+  }
+}
 export default function* rootSaga() {
   yield takeEvery('GETTOPICS_ASYNC', getTopicsAsync)
   yield takeEvery('GETTOPIC_ASYNC', getTopicAsync)
   yield takeEvery('LOGIN_ASYNC', getLoginAsync)
   yield takeEvery('GETUSERINFO_ASYNC', getUserInfo_async)
   yield takeEvery('SETUP_ASYNC', setUp_async)
+  yield takeEvery('REPLIES_ASYNC', replies_async)
 }

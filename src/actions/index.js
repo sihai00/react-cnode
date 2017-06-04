@@ -108,3 +108,21 @@ export function setDown(replies, myId) {
     myId: myId
   }
 }
+// 评论
+export function replies_async(content, topic_id, reply_id) {
+  return {
+    type: 'REPLIES_ASYNC',
+    content: content,
+    topic_id: topic_id,
+    reply_id: reply_id
+  }
+}
+// store 添加评论
+export function addRplies(author, content, reply_id) {
+  return {
+    type: 'ADDRPLIES',
+    payload: author,
+    content: content,
+    reply_id: reply_id
+  }
+}
