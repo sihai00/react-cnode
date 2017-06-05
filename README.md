@@ -66,7 +66,6 @@ dispatch({
 containers目录下，负责业务逻辑处理和数据的分发
 
 ```js
-// redux中的counter例子
 let initState = {
   param: {
     limit: 10,
