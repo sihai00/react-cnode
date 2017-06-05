@@ -19,12 +19,15 @@ npm install
 npm start
 ```
 ## react生命周期与redux数据流动图例（摘取Scott）
+react生命周期
+![react生命周期](https://github.com/sihai00/react-cnode/blob/master/b.png)
 
-![react生命周期](https://github.com/sihai00/react-cnode/blob/master/a.png)
-![redux数据流动](https://github.com/sihai00/react-cnode/blob/master/b.png)
+redux数据流动
+![redux数据流动](https://github.com/sihai00/react-cnode/blob/master/a.png)
 
 ## 目录结构
 由于是用react-app-create结合react-router-redux工具快读构建的，整体目录结构大致相同，以下为src目录结构
+```
 - actions： action目录（所以行为）
 - components： ui组件目录（只负责ui组件的渲染）
   - Topics：文章列表页（ui层）
@@ -38,7 +41,7 @@ npm start
   - index.js：路由
 - sagas：异步请求（redux中间件）
 - tool： 项目所需公共工具类
-
+```
 一个页面的逻辑层就对应一个ui层页面，一个ui层页面包含子ui组件。可以想象成一个鸡蛋中鸡蛋壳（逻辑层redux）包含蛋黄和蛋白（ui层）
 
 ## actions：对store改变的行为
