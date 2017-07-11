@@ -20,10 +20,10 @@ npm start
 ```
 ## react生命周期与redux数据流动图例（摘取Scott）
 react生命周期
-![react生命周期](https://github.com/sihai00/react-cnode/blob/master/b.png)
+![react生命周期](./b.png)
 
 redux数据流动
-![redux数据流动](https://github.com/sihai00/react-cnode/blob/master/a.png)
+![redux数据流动](./a.png)
 
 ## 目录结构
 由于是用react-app-create结合react-router-redux工具快读构建的，整体目录结构大致相同，以下为src目录结构
